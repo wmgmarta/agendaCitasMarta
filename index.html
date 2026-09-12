@@ -22,35 +22,34 @@
   .flex{display:flex} .flex-col{flex-direction:column} .flex-1{flex:1 1 0%}
   .items-center{align-items:center} .items-start{align-items:flex-start}
   .justify-between{justify-content:space-between} .justify-center{justify-content:center}
-  .grid{display:grid} .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))} .grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid{display:grid} .grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
   .gap-2{gap:.5rem} .gap-2\.5{gap:.625rem} .gap-3{gap:.75rem}
-  .space-y-3>*+*{margin-top:.75rem} .space-y-4>*+*{margin-top:1rem}
-  .block{display:block} .inline-block{display:inline-block} .hidden{display:none}
-  .relative{position:relative} .absolute{position:absolute} .overflow-hidden{overflow:hidden} .overflow-x-auto{overflow-x:auto}
-  .shrink-0{flex-shrink:0} .z-10{z-index:10}
+  .space-y-3>*+*{margin-top:.75rem}
+  .block{display:block} .hidden{display:none}
+  .relative{position:relative} .absolute{position:absolute} .overflow-hidden{overflow:hidden}
+  .z-10{z-index:10}
 
-  .px-6{padding-left:1.5rem;padding-right:1.5rem} .px-3{padding-left:.75rem;padding-right:.75rem} .px-3\.5{padding-left:.875rem;padding-right:.875rem}
-  .pt-6{padding-top:1.5rem} .pt-8{padding-top:2rem} .pt-10{padding-top:2.5rem} .pt-2{padding-top:.5rem}
+  .px-6{padding-left:1.5rem;padding-right:1.5rem}
+  .pt-6{padding-top:1.5rem} .pt-8{padding-top:2rem} .pt-10{padding-top:2.5rem}
   .pb-2{padding-bottom:.5rem} .pb-8{padding-bottom:2rem}
   .py-1\.5{padding-top:.375rem;padding-bottom:.375rem} .py-3{padding-top:.75rem;padding-bottom:.75rem} .py-4{padding-top:1rem;padding-bottom:1rem} .py-5{padding-top:1.25rem;padding-bottom:1.25rem}
   .p-4{padding:1rem} .p-5{padding:1.25rem} .p-6{padding:1.5rem}
 
   .mb-1{margin-bottom:.25rem} .mb-2{margin-bottom:.5rem} .mb-3{margin-bottom:.75rem} .mb-4{margin-bottom:1rem}
   .mb-5{margin-bottom:1.25rem} .mb-6{margin-bottom:1.5rem} .mb-8{margin-bottom:2rem} .mb-10{margin-bottom:2.5rem}
-  .mt-1{margin-top:.25rem} .mt-4{margin-top:1rem} .mt-10{margin-top:2.5rem} .mt-auto{margin-top:auto}
+  .mt-4{margin-top:1rem} .mt-6{margin-top:1.5rem} .mt-10{margin-top:2.5rem} .mt-auto{margin-top:auto}
 
   .w-full{width:100%} .w-16{width:4rem} .h-16{height:4rem} .max-w-\[34ch\]{max-width:34ch}
 
   .text-xs{font-size:.75rem;line-height:1rem} .text-sm{font-size:.875rem;line-height:1.3rem} .text-base{font-size:1rem;line-height:1.5rem}
-  .text-lg{font-size:1.125rem;line-height:1.6rem} .text-xl{font-size:1.25rem;line-height:1.7rem} .text-2xl{font-size:1.5rem;line-height:1.85rem} .text-3xl{font-size:1.875rem;line-height:2.1rem}
-  .text-\[11px\]{font-size:11px} .text-\[2\.5rem\]{font-size:2.5rem}
+  .text-lg{font-size:1.125rem;line-height:1.6rem} .text-xl{font-size:1.25rem;line-height:1.7rem} .text-2xl{font-size:1.5rem;line-height:1.85rem}
+  .text-\[2\.5rem\]{font-size:2.5rem}
   .font-medium{font-weight:500} .font-semibold{font-weight:600} .font-normal{font-weight:400}
   .uppercase{text-transform:uppercase} .tracking-wide{letter-spacing:.03em}
-  .leading-relaxed{line-height:1.65} .leading-tight{line-height:1.2} .leading-snug{line-height:1.35} .leading-\[1\.08\]{line-height:1.08}
-  .text-center{text-align:center} .text-left{text-align:left} .italic{font-style:italic}
+  .leading-relaxed{line-height:1.65} .leading-snug{line-height:1.35} .leading-\[1\.08\]{line-height:1.08}
+  .text-center{text-align:center} .text-left{text-align:left}
 
   .rounded-2xl{border-radius:1rem} .rounded-xl{border-radius:.75rem} .rounded-full{border-radius:9999px}
-  .opacity-70{opacity:.7} .align-middle{vertical-align:middle} .resize-none{resize:none}
 
   :root{
     --blanco-roto:#FFF9F0;
@@ -62,7 +61,6 @@
     --texto-muted-2:#7a4a3a;
     --texto-claridad:#5a7a99;
     --borde:#e9dccb;
-    --historial-bg:#f2ebdf;
     --arena:#b89b85;
   }
   *{ -webkit-tap-highlight-color: transparent; }
@@ -110,11 +108,7 @@
   .app-scroll{ flex:1; display:flex; flex-direction:column; }
 
   /* Transiciones entre pantallas */
-  .screen{
-    display:none;
-    flex:1;
-    flex-direction:column;
-  }
+  .screen{ display:none; flex:1; flex-direction:column; }
   .screen.active{ display:flex; }
   .screen.enter{ animation: screenIn .32s cubic-bezier(.2,.7,.3,1); }
   @keyframes screenIn{
@@ -135,7 +129,6 @@
   }
   .btn-primary:hover{ box-shadow:0 14px 28px -8px rgba(223,102,48,.6); }
   .btn-primary:active{ opacity:.88; transform:scale(.99); }
-  .btn-primary:disabled{ opacity:.6; box-shadow:none; cursor:not-allowed; transform:none; }
 
   .btn-secondary{
     border:2px solid var(--borde); color:var(--profundidad);
@@ -149,56 +142,14 @@
   }
   .link-btn:hover{ color:var(--profundidad) !important; }
 
-  .step-dot{ width:8px; height:8px; border-radius:999px; background:var(--borde); transition: all .25s ease; }
-  .step-dot.active{ background:var(--energia); width:22px; border-radius:999px; }
-  .step-dot.done{ background:var(--energia); opacity:.45; }
-
   .icon-btn{ width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:999px; transition: background .15s ease; }
   .icon-btn:hover{ background:var(--calidez); }
 
-  .day-chip{
-    scroll-snap-align:start;
-    background:var(--calidez); color:var(--profundidad);
-    transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
-    border:2px solid transparent;
-  }
-  .day-chip[aria-pressed="true"]{
-    background:var(--energia); color:#fff;
-  }
-  .day-chip[aria-disabled="true"]{ opacity:.35; pointer-events:none; }
-  .day-chip:not([aria-pressed="true"]):not([aria-disabled="true"]):hover{ border-color:var(--energia); }
-
-  .hora-btn{ background:var(--calidez); color:var(--profundidad); transition: background .15s ease, color .15s ease, transform .15s ease; }
-  .hora-btn[aria-pressed="true"]{ background:var(--energia); color:#fff; }
-  .hora-btn:not([aria-pressed="true"]):hover{ background:#ffdfc0; }
-
-  .field{
-    width:100%; padding:14px 16px; border-radius:14px; border:2px solid var(--borde);
-    background:var(--blanco-roto); outline:none; font-size:15px; color:var(--profundidad);
-    transition: border-color .15s ease, box-shadow .15s ease;
-  }
-  .field::placeholder{ color:var(--arena); }
-  .field:focus{ border-color:var(--energia); box-shadow:0 0 0 4px rgba(223,102,48,.15); }
-  .field.error{ border-color:#c0392b; }
-  .field-error-msg{ color:#c0392b; font-size:12px; margin-top:4px; display:none; }
-  .field-error-msg.show{ display:block; }
-
-  .spinner{
-    width:20px; height:20px; border-radius:999px;
-    border:2.5px solid rgba(255,249,240,.4); border-top-color:#fff;
-    animation:spin .7s linear infinite;
-  }
-  @keyframes spin{ to{ transform:rotate(360deg); } }
-
   ::-webkit-scrollbar{ width:0; height:0; }
 
-  .watermark{
-    position:absolute; top:-30px; right:-60px; opacity:.06; pointer-events:none;
-  }
+  .watermark{ position:absolute; top:-30px; right:-60px; opacity:.06; pointer-events:none; }
 
-  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline:2px solid var(--energia); outline-offset:2px;
-  }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--energia); outline-offset:2px; }
 </style>
 </head>
 <body>
@@ -237,8 +188,8 @@
         Pedir cita ahora
         <span aria-hidden="true">→</span>
       </button>
-      <button onclick="goTo('miscitas')" class="btn-secondary w-full py-4 rounded-2xl text-base font-medium relative">
-        Ver mis citas
+      <button onclick="goTo('ayuda')" class="btn-secondary w-full py-4 rounded-2xl text-base font-medium relative">
+        ¿Ya tienes cita?
       </button>
 
       <div class="mt-10 relative">
@@ -264,169 +215,92 @@
       </div>
     </section>
 
-    <!-- ===================== PANTALLA: PASO 1 - SERVICIO ===================== -->
+    <!-- ===================== PANTALLA: ELEGIR SERVICIO ===================== -->
     <section id="screen-servicio" class="screen flex-1 flex flex-col px-6 pt-6 pb-8">
       <div class="flex items-center gap-3 mb-6">
         <button onclick="goTo('inicio')" aria-label="Volver al inicio" class="icon-btn text-xl" style="color:var(--profundidad)">←</button>
-        <div class="flex gap-2" role="img" aria-label="Paso 1 de 3">
-          <div class="step-dot active"></div><div class="step-dot"></div><div class="step-dot"></div>
-        </div>
       </div>
       <h2 class="font-display text-2xl mb-1">¿Qué tipo de sesión necesitas?</h2>
-      <p class="text-sm mb-6" style="color:var(--texto-muted)">Elige la que mejor encaje contigo</p>
+      <p class="text-sm mb-6" style="color:var(--texto-muted)">Elige la que mejor encaje contigo. Se abrirá el calendario real de Marta para que elijas día y hora.</p>
 
-      <div class="space-y-3" role="radiogroup" aria-label="Tipo de sesión">
-        <button onclick="selectServicio(this,'Primera sesión','75 min')" class="tap-card w-full text-left p-5 rounded-2xl" style="background:var(--calidez)" role="radio" aria-checked="false">
-          <p class="font-display text-lg font-medium mb-1">Primera sesión</p>
-          <p class="text-sm" style="color:var(--texto-muted)">75 min · Conversación inicial para conocernos</p>
+      <div class="space-y-3">
+        <button onclick="reservar('primera')" class="tap-card w-full text-left p-5 rounded-2xl flex items-center justify-between gap-3" style="background:var(--calidez)">
+          <span>
+            <span class="font-display text-lg font-medium mb-1 block">Primera sesión</span>
+            <span class="text-sm block" style="color:var(--texto-muted)">75 min · Conversación inicial para conocernos</span>
+          </span>
+          <span aria-hidden="true" style="color:var(--texto-muted)">↗</span>
         </button>
-        <button onclick="selectServicio(this,'Sesión de seguimiento','50 min')" class="tap-card w-full text-left p-5 rounded-2xl" style="background:var(--calidez)" role="radio" aria-checked="false">
-          <p class="font-display text-lg font-medium mb-1">Sesión de seguimiento</p>
-          <p class="text-sm" style="color:var(--texto-muted)">50 min · Continuamos tu proceso</p>
+        <button onclick="reservar('seguimiento')" class="tap-card w-full text-left p-5 rounded-2xl flex items-center justify-between gap-3" style="background:var(--calidez)">
+          <span>
+            <span class="font-display text-lg font-medium mb-1 block">Sesión de seguimiento</span>
+            <span class="text-sm block" style="color:var(--texto-muted)">50 min · Continuamos tu proceso</span>
+          </span>
+          <span aria-hidden="true" style="color:var(--texto-muted)">↗</span>
         </button>
-        <button onclick="selectServicio(this,'Sesión online','50 min')" class="tap-card w-full text-left p-5 rounded-2xl" style="background:var(--claridad)" role="radio" aria-checked="false">
-          <p class="font-display text-lg font-medium mb-1">Sesión online</p>
-          <p class="text-sm" style="color:var(--texto-claridad)">50 min · Por videollamada</p>
+        <button onclick="reservar('online')" class="tap-card w-full text-left p-5 rounded-2xl flex items-center justify-between gap-3" style="background:var(--claridad)">
+          <span>
+            <span class="font-display text-lg font-medium mb-1 block">Sesión online</span>
+            <span class="text-sm block" style="color:var(--texto-claridad)">50 min · Por videollamada</span>
+          </span>
+          <span aria-hidden="true" style="color:var(--texto-claridad)">↗</span>
         </button>
       </div>
     </section>
 
-    <!-- ===================== PANTALLA: PASO 2 - FECHA/HORA ===================== -->
-    <section id="screen-fecha" class="screen flex-1 flex flex-col px-6 pt-6 pb-8">
-      <div class="flex items-center gap-3 mb-6">
-        <button onclick="goTo('servicio')" aria-label="Volver al paso anterior" class="icon-btn text-xl" style="color:var(--profundidad)">←</button>
-        <div class="flex gap-2" role="img" aria-label="Paso 2 de 3">
-          <div class="step-dot done"></div><div class="step-dot active"></div><div class="step-dot"></div>
-        </div>
+    <!-- ===================== PANTALLA: REDIRIGIDO A GOOGLE CALENDAR ===================== -->
+    <section id="screen-redirigido" class="screen flex-1 flex flex-col px-6 pt-10 pb-8 items-center text-center">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background:var(--claridad)">
+        <span class="text-2xl" aria-hidden="true">↗</span>
       </div>
-      <h2 class="font-display text-2xl mb-1">Elige día y hora</h2>
-      <p class="text-sm mb-5" style="color:var(--texto-muted)">Solo se muestran los huecos disponibles</p>
-
-      <div id="dias-scroll" class="flex gap-2 overflow-x-auto pb-2 mb-5" style="scroll-snap-type:x proximity;" role="radiogroup" aria-label="Elige el día"></div>
-
-      <p class="font-semibold text-sm mb-3" id="horas-label">Horas disponibles</p>
-      <div id="horas" class="grid grid-cols-3 gap-3 mb-4" role="radiogroup" aria-label="Elige la hora"></div>
-      <p id="sin-huecos" class="text-sm mb-4 hidden" style="color:var(--texto-muted)">No quedan huecos este día. Prueba con otra fecha.</p>
-
-      <button onclick="confirmarFechaHora()" class="btn-primary w-full py-5 rounded-2xl text-lg font-semibold mt-auto">
-        Continuar
-      </button>
-    </section>
-
-    <!-- ===================== PANTALLA: PASO 3 - DATOS ===================== -->
-    <section id="screen-datos" class="screen flex-1 flex flex-col px-6 pt-6 pb-8">
-      <div class="flex items-center gap-3 mb-6">
-        <button onclick="goTo('fecha')" aria-label="Volver al paso anterior" class="icon-btn text-xl" style="color:var(--profundidad)">←</button>
-        <div class="flex gap-2" role="img" aria-label="Paso 3 de 3">
-          <div class="step-dot done"></div><div class="step-dot done"></div><div class="step-dot active"></div>
-        </div>
-      </div>
-      <h2 class="font-display text-2xl mb-1">Tus datos</h2>
-      <p class="text-sm mb-6" style="color:var(--texto-muted)">Solo lo necesario para confirmar tu cita</p>
-
-      <div class="rounded-2xl p-4 mb-6 flex items-center justify-between" style="background:var(--historial-bg)">
-        <div>
-          <p id="resumen-servicio" class="font-display text-base">Primera sesión</p>
-          <p id="resumen-fechahora" class="text-sm" style="color:var(--texto-muted)">—</p>
-        </div>
-        <button onclick="goTo('fecha')" class="text-sm font-semibold" style="color:var(--energia)">Cambiar</button>
-      </div>
-
-      <form id="form-datos" class="space-y-4" novalidate>
-        <div>
-          <label for="input-nombre" class="text-sm font-medium block mb-1">Nombre completo</label>
-          <input id="input-nombre" required type="text" placeholder="Tu nombre" class="field" autocomplete="name">
-          <p class="field-error-msg">Escribe tu nombre para poder confirmarte la cita.</p>
-        </div>
-        <div>
-          <label for="input-telefono" class="text-sm font-medium block mb-1">Teléfono</label>
-          <input id="input-telefono" required type="tel" placeholder="Para tu recordatorio por WhatsApp" class="field" autocomplete="tel">
-          <p class="field-error-msg">Indica un teléfono para enviarte el recordatorio.</p>
-        </div>
-        <div>
-          <label for="input-email" class="text-sm font-medium block mb-1">Email</label>
-          <input id="input-email" required type="email" placeholder="tu@email.com" class="field" autocomplete="email">
-          <p class="field-error-msg">Escribe un email válido.</p>
-        </div>
-        <div>
-          <label for="input-nota" class="text-sm font-medium block mb-1">¿Qué te trae por aquí? <span class="font-normal" style="color:var(--arena)">(opcional)</span></label>
-          <textarea id="input-nota" placeholder="Una frase es suficiente" rows="2" class="field resize-none"></textarea>
-        </div>
-        <label class="flex items-start gap-3 text-xs pt-2" style="color:var(--texto-muted)">
-          <input id="input-consent" required type="checkbox" class="mt-1">
-          Autorizo el tratamiento de mis datos para la gestión de la cita, conforme a la política de privacidad.
-        </label>
-
-        <button id="btn-confirmar-datos" type="submit" class="btn-primary w-full py-5 rounded-2xl text-lg font-semibold mt-4 flex items-center justify-center gap-2">
-          <span id="btn-confirmar-texto">Confirmar cita</span>
-        </button>
-      </form>
-    </section>
-
-    <!-- ===================== PANTALLA: CONFIRMACIÓN ===================== -->
-    <section id="screen-confirmacion" class="screen flex-1 flex flex-col px-6 pt-10 pb-8 items-center text-center">
-      <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6" style="background:var(--calidez)">
-        <span class="text-3xl" aria-hidden="true">✓</span>
-      </div>
-      <h2 class="font-display text-2xl mb-2">¡Cita confirmada!</h2>
-      <p class="text-sm mb-8" style="color:var(--texto-muted)">Te esperamos, <span id="conf-nombre">Ana</span></p>
-
-      <div class="w-full rounded-2xl p-6 mb-6 text-left" style="background:var(--claridad)">
-        <p class="text-xs uppercase tracking-wide mb-1" style="color:var(--texto-claridad)">Servicio</p>
-        <p id="conf-servicio" class="font-display text-lg mb-4">Primera sesión</p>
-        <p class="text-xs uppercase tracking-wide mb-1" style="color:var(--texto-claridad)">Fecha y hora</p>
-        <p id="conf-fechahora" class="font-display text-lg">—</p>
-      </div>
-
+      <h2 class="font-display text-2xl mb-2">Te hemos abierto la agenda de Marta</h2>
       <p class="text-sm leading-relaxed mb-6" style="color:var(--texto-muted)">
-        Te enviaremos un recordatorio por WhatsApp 24h antes de tu sesión, con todo lo que necesitas.
+        En la nueva pestaña, elige el día y la hora que mejor te vengan. En cuanto confirmes, Google te enviará la
+        cita por email, con opción de añadirla a tu calendario, cambiarla o cancelarla cuando quieras.
       </p>
-
-      <button onclick="abrirGoogleCalendar()" class="btn-secondary w-full py-4 rounded-2xl text-base font-medium mb-3 flex items-center justify-center gap-2">
-        <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22 6.5v11c0 1.4-1.1 2.5-2.5 2.5h-15A2.5 2.5 0 0 1 2 17.5v-11C2 5.1 3.1 4 4.5 4h15C20.9 4 22 5.1 22 6.5Z"/><path fill="#fff" d="M4.5 6h15v2h-15z" opacity=".35"/><text x="12" y="16.5" text-anchor="middle" font-size="8.5" font-weight="700" fill="#4285F4">31</text></svg>
-        Añadir a Google Calendar
-      </button>
-      <button onclick="descargarICS()" class="link-btn text-sm font-medium mb-6" style="color:var(--texto-muted)">
-        o descárgala como archivo .ics (Apple/Outlook)
-      </button>
-      <button onclick="goTo('miscitas')" class="btn-primary w-full py-5 rounded-2xl text-lg font-semibold">
-        Ver mis citas
-      </button>
+      <button onclick="reabrirReserva()" class="link-btn text-sm font-medium mb-8" style="color:var(--texto-muted)">¿No se abrió la pestaña? Ábrela de nuevo</button>
+      <button onclick="goTo('inicio')" class="btn-primary w-full py-5 rounded-2xl text-lg font-semibold">Volver al inicio</button>
     </section>
 
-    <!-- ===================== PANTALLA: MIS CITAS ===================== -->
-    <section id="screen-miscitas" class="screen flex-1 flex flex-col px-6 pt-6 pb-8">
+    <!-- ===================== PANTALLA: AYUDA / YA TENGO CITA ===================== -->
+    <section id="screen-ayuda" class="screen flex-1 flex flex-col px-6 pt-6 pb-8">
       <div class="flex items-center gap-3 mb-6">
         <button onclick="goTo('inicio')" aria-label="Volver al inicio" class="icon-btn text-xl" style="color:var(--profundidad)">←</button>
-        <h2 class="font-display text-2xl">Mis citas</h2>
+        <h2 class="font-display text-2xl">¿Ya tienes cita?</h2>
       </div>
 
-      <div id="miscitas-content"></div>
+      <div class="rounded-2xl p-5 mb-4" style="background:var(--calidez)">
+        <p class="font-display text-lg mb-2">Revisa tu email</p>
+        <p class="text-sm leading-relaxed" style="color:var(--texto-muted)">
+          Al reservar, Google Calendar te envía al instante un correo de confirmación con el día, la hora y un enlace
+          para añadirla a tu calendario, cambiarla o cancelarla. Ese email es tu comprobante — no hace falta guardar
+          nada más en esta web.
+        </p>
+      </div>
+
+      <p class="text-sm leading-relaxed mb-3" style="color:var(--texto-muted)">¿No te llegó el email o tienes alguna duda?</p>
+      <button onclick="abrirWhatsapp()" class="btn-secondary w-full py-4 rounded-2xl text-base font-medium flex items-center justify-center gap-2">
+        Escríbeme por WhatsApp
+      </button>
     </section>
 
   </div>
 </div>
 
 <script>
-  const DIAS_SEMANA = ['dom','lun','mar','mié','jue','vie','sáb'];
-  const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-  const STORAGE_KEY = 'martaR_citas_v1';
+  /* Enlaces reales de "Horario de citas" de Google Calendar de Marta.
+     Sustituir por los enlaces de reserva de cada evento (Google Calendar
+     → Crear → Horario de citas → Compartir → Copiar enlace de reservas). */
+  const ENLACES_RESERVA = {
+    primera: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_PRIMERA_SESION',
+    seguimiento: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_SEGUIMIENTO',
+    online: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_ONLINE',
+  };
 
-  let citaEnCurso = { servicio:'', duracion:'', diaISO:'', diaLabel:'', hora:'' };
+  /* Número de WhatsApp real de Marta, formato internacional sin "+" (ej: 34600000000). */
+  const WHATSAPP_NUMERO = 'PON_AQUI_EL_NUMERO';
 
-  let citas = cargarCitas();
-
-  function cargarCitas(){
-    try{
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if(raw) return JSON.parse(raw);
-    }catch(e){}
-    return { proxima:null, historial:[] };
-  }
-
-  function guardarCitas(){
-    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(citas)); }catch(e){}
-  }
+  let ultimoTipoReserva = null;
 
   function goTo(name){
     document.querySelectorAll('.screen').forEach(s => { s.classList.remove('active'); s.classList.remove('enter'); });
@@ -435,288 +309,29 @@
     void el.offsetWidth;
     el.classList.add('enter');
     document.getElementById('scroll-container').scrollTo(0,0);
-    if(name === 'miscitas') renderMisCitas();
-    if(name === 'fecha') renderSelectorFecha();
   }
 
-  function selectServicio(btn, nombre, duracion){
-    document.querySelectorAll('#screen-servicio [role="radio"]').forEach(b => b.setAttribute('aria-checked','false'));
-    btn.setAttribute('aria-checked','true');
-    citaEnCurso.servicio = nombre;
-    citaEnCurso.duracion = duracion;
-    goTo('fecha');
-  }
-
-  /* ---------- Selector de fecha/hora ---------- */
-
-  function esLaborable(date){
-    const d = date.getDay();
-    return d !== 0 && d !== 6;
-  }
-
-  function proximosDiasLaborables(cantidad){
-    const dias = [];
-    const cursor = new Date();
-    cursor.setHours(0,0,0,0);
-    cursor.setDate(cursor.getDate() + 1);
-    while(dias.length < cantidad){
-      if(esLaborable(cursor)) dias.push(new Date(cursor));
-      cursor.setDate(cursor.getDate() + 1);
-    }
-    return dias;
-  }
-
-  function isoDate(date){
-    return date.toISOString().slice(0,10);
-  }
-
-  function horasParaDia(date){
-    const base = ['10:00','11:30','17:00'];
-    const dia = date.getDate();
-    let horas = base.slice();
-    if(dia % 3 === 0) horas = horas.filter(h => h !== '17:00');
-    if(dia % 4 === 0) horas = horas.filter(h => h !== '10:00');
-    if(dia % 7 === 0) horas = horas.filter(h => h !== '11:30');
-    return horas;
-  }
-
-  let diasDisponibles = [];
-
-  function renderSelectorFecha(){
-    diasDisponibles = proximosDiasLaborables(14);
-    const cont = document.getElementById('dias-scroll');
-    cont.innerHTML = '';
-    diasDisponibles.forEach((date, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'day-chip flex flex-col items-center justify-center rounded-2xl py-3 px-3.5 shrink-0';
-      btn.style.minWidth = '58px';
-      btn.setAttribute('role','radio');
-      btn.setAttribute('aria-pressed', citaEnCurso.diaISO === isoDate(date) ? 'true' : 'false');
-      const disponibles = horasParaDia(date).length > 0;
-      if(!disponibles) btn.setAttribute('aria-disabled','true');
-      btn.innerHTML = `<span class="text-[11px] uppercase" style="opacity:.7">${DIAS_SEMANA[date.getDay()]}</span><span class="font-display text-lg leading-tight">${date.getDate()}</span>`;
-      btn.onclick = () => selectDia(date);
-      cont.appendChild(btn);
-    });
-
-    if(!citaEnCurso.diaISO && diasDisponibles.length){
-      selectDia(diasDisponibles[0]);
-    } else if(citaEnCurso.diaISO){
-      renderHoras();
-    }
-  }
-
-  function selectDia(date){
-    citaEnCurso.diaISO = isoDate(date);
-    citaEnCurso.diaLabel = `${date.getDate()} ${MESES[date.getMonth()].slice(0,3)}`;
-    citaEnCurso.hora = '';
-    document.querySelectorAll('.day-chip').forEach((btn,i) => {
-      btn.setAttribute('aria-pressed', isoDate(diasDisponibles[i]) === citaEnCurso.diaISO ? 'true' : 'false');
-    });
-    renderHoras();
-  }
-
-  function renderHoras(){
-    const date = diasDisponibles.find(d => isoDate(d) === citaEnCurso.diaISO);
-    const horas = date ? horasParaDia(date) : [];
-    const cont = document.getElementById('horas');
-    const sinHuecos = document.getElementById('sin-huecos');
-    cont.innerHTML = '';
-    if(horas.length === 0){
-      sinHuecos.classList.remove('hidden');
+  function reservar(tipo){
+    const url = ENLACES_RESERVA[tipo];
+    if(!url || url.includes('PON_AQUI')){
+      alert('Este enlace de reserva todavía no está configurado. Vuelve a intentarlo más tarde.');
       return;
     }
-    sinHuecos.classList.add('hidden');
-    horas.forEach(h => {
-      const btn = document.createElement('button');
-      btn.className = 'hora-btn py-3 rounded-xl font-medium';
-      btn.setAttribute('role','radio');
-      btn.setAttribute('aria-pressed', citaEnCurso.hora === h ? 'true' : 'false');
-      btn.textContent = h;
-      btn.onclick = () => {
-        citaEnCurso.hora = h;
-        document.querySelectorAll('.hora-btn').forEach(b => b.setAttribute('aria-pressed','false'));
-        btn.setAttribute('aria-pressed','true');
-      };
-      cont.appendChild(btn);
-    });
+    ultimoTipoReserva = tipo;
+    window.open(url, '_blank', 'noopener');
+    goTo('redirigido');
   }
 
-  function confirmarFechaHora(){
-    if(!citaEnCurso.diaISO || !citaEnCurso.hora){
-      alert('Elige un día y una hora para continuar');
+  function reabrirReserva(){
+    if(ultimoTipoReserva) reservar(ultimoTipoReserva);
+  }
+
+  function abrirWhatsapp(){
+    if(!WHATSAPP_NUMERO || WHATSAPP_NUMERO.includes('PON_AQUI')){
+      alert('Falta configurar el número de WhatsApp de Marta.');
       return;
     }
-    document.getElementById('resumen-servicio').textContent = citaEnCurso.servicio;
-    document.getElementById('resumen-fechahora').textContent = `${citaEnCurso.duracion} · ${citaEnCurso.diaLabel} · ${citaEnCurso.hora}`;
-    goTo('datos');
-  }
-
-  /* ---------- Formulario de datos ---------- */
-
-  document.getElementById('form-datos').addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const campos = [
-      { el: document.getElementById('input-nombre'), valido: v => v.trim().length > 1 },
-      { el: document.getElementById('input-telefono'), valido: v => v.trim().length > 5 },
-      { el: document.getElementById('input-email'), valido: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-    ];
-
-    let ok = true;
-    campos.forEach(({el, valido}) => {
-      const valid = valido(el.value);
-      el.classList.toggle('error', !valid);
-      const msg = el.parentElement.querySelector('.field-error-msg');
-      if(msg) msg.classList.toggle('show', !valid);
-      if(!valid) ok = false;
-    });
-
-    const consent = document.getElementById('input-consent');
-    if(!consent.checked){ ok = false; consent.focus(); }
-    if(!ok) return;
-
-    const btn = document.getElementById('btn-confirmar-datos');
-    const btnTexto = document.getElementById('btn-confirmar-texto');
-    btn.disabled = true;
-    btnTexto.innerHTML = '<span class="spinner inline-block align-middle"></span>';
-
-    setTimeout(() => {
-      confirmarDatos();
-      btn.disabled = false;
-      btnTexto.textContent = 'Confirmar cita';
-    }, 550);
-  });
-
-  function confirmarDatos(){
-    const nombre = document.getElementById('input-nombre').value.trim();
-
-    citas.proxima = {
-      servicio: citaEnCurso.servicio,
-      duracion: citaEnCurso.duracion,
-      diaISO: citaEnCurso.diaISO,
-      diaLabel: citaEnCurso.diaLabel,
-      hora: citaEnCurso.hora,
-      nombre: nombre,
-    };
-    guardarCitas();
-
-    document.getElementById('conf-nombre').textContent = nombre.split(' ')[0] || nombre;
-    document.getElementById('conf-servicio').textContent = citaEnCurso.servicio;
-    document.getElementById('conf-fechahora').textContent = `${citaEnCurso.diaLabel} · ${citaEnCurso.hora}`;
-    goTo('confirmacion');
-  }
-
-  function datosEventoActual(){
-    const c = citas.proxima;
-    if(!c) return null;
-    const [h,m] = c.hora.split(':').map(Number);
-    const start = new Date(c.diaISO + 'T00:00:00');
-    start.setHours(h, m, 0, 0);
-    const minutos = parseInt(c.duracion, 10) || 50;
-    const end = new Date(start.getTime() + minutos * 60000);
-    const esOnline = /online/i.test(c.servicio);
-    return {
-      start, end,
-      title: `${c.servicio} con Marta R.`,
-      details: `Reservado desde la web de Marta R. (agendaCitasMarta). Sesión de neurocoaching, ${c.duracion}. Recibirás un recordatorio por WhatsApp 24h antes.`,
-      location: esOnline ? 'Videollamada' : 'Consulta de Marta R.',
-    };
-  }
-
-  function descargarICS(){
-    const ev = datosEventoActual();
-    if(!ev) return;
-    const fmt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
-    const ics = [
-      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Marta R.//Agenda de citas//ES','BEGIN:VEVENT',
-      `UID:${Date.now()}@martar`,
-      `DTSTAMP:${fmt(new Date())}`,
-      `DTSTART:${fmt(ev.start)}`,
-      `DTEND:${fmt(ev.end)}`,
-      `SUMMARY:${ev.title}`,
-      `LOCATION:${ev.location}`,
-      `DESCRIPTION:${ev.details}`,
-      'END:VEVENT','END:VCALENDAR'
-    ].join('\r\n');
-    const blob = new Blob([ics], { type:'text/calendar' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'cita-marta-r.ics';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  function abrirGoogleCalendar(){
-    const ev = datosEventoActual();
-    if(!ev) return;
-    const fmt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z';
-    const params = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: ev.title,
-      dates: `${fmt(ev.start)}/${fmt(ev.end)}`,
-      details: ev.details,
-      location: ev.location,
-    });
-    window.open(`https://calendar.google.com/calendar/render?${params.toString()}`, '_blank');
-  }
-
-  /* ---------- Mis citas ---------- */
-
-  function renderMisCitas(){
-    const cont = document.getElementById('miscitas-content');
-    let html = '';
-
-    if(citas.proxima){
-      const c = citas.proxima;
-      html += `
-        <p class="text-xs uppercase tracking-wide mb-2" style="color:var(--arena)">Próxima cita</p>
-        <div class="rounded-2xl p-5 mb-4" style="background:var(--calidez)">
-          <p class="font-display text-lg mb-1">${c.servicio}</p>
-          <p class="text-sm mb-3" style="color:var(--texto-muted)">${c.diaLabel} · ${c.hora}</p>
-          <button onclick="abrirGoogleCalendar()" class="link-btn text-sm font-medium mb-3" style="color:var(--texto-muted)">+ Añadir a Google Calendar</button>
-          <div class="flex gap-3">
-            <button onclick="cancelarCita()" class="btn-secondary flex-1 py-3 rounded-xl text-sm font-medium">Cancelar</button>
-            <button onclick="goTo('fecha')" class="flex-1 py-3 rounded-xl text-sm font-medium btn-primary">Cambiar hora</button>
-          </div>
-        </div>`;
-    } else {
-      html += `
-        <div class="rounded-2xl p-6 mb-4 text-center" style="background:var(--calidez)">
-          <p class="font-display text-lg mb-1">No tienes citas próximas</p>
-          <p class="text-sm mb-4" style="color:var(--texto-muted)">Reserva tu próxima sesión cuando quieras.</p>
-          <button onclick="goTo('servicio')" class="btn-primary w-full py-3 rounded-xl text-sm font-semibold">Pedir cita</button>
-        </div>`;
-    }
-
-    html += `<p class="text-xs uppercase tracking-wide mb-2 mt-4" style="color:var(--arena)">Historial</p>`;
-    if(citas.historial && citas.historial.length){
-      citas.historial.forEach(h => {
-        html += `
-          <div class="rounded-2xl p-5 mb-3 opacity-70" style="background:var(--historial-bg)">
-            <p class="font-display text-base mb-1">${h.servicio}</p>
-            <p class="text-sm">${h.diaLabel} · ${h.hora} · <span class="italic">cancelada</span></p>
-          </div>`;
-      });
-    } else {
-      html += `<p class="text-sm" style="color:var(--texto-muted)">Aún no hay citas pasadas.</p>`;
-    }
-
-    cont.innerHTML = html;
-  }
-
-  function cancelarCita(){
-    if(!citas.proxima) return;
-    if(confirm('¿Seguro que quieres cancelar tu cita?')){
-      citas.historial = citas.historial || [];
-      citas.historial.unshift(citas.proxima);
-      citas.proxima = null;
-      guardarCitas();
-      renderMisCitas();
-    }
+    window.open(`https://wa.me/${WHATSAPP_NUMERO}`, '_blank', 'noopener');
   }
 </script>
 
