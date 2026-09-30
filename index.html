@@ -184,13 +184,17 @@
         Reserva tu sesión de neurocoaching en menos de dos minutos. Sin complicaciones.
       </p>
 
-      <button onclick="goTo('servicio')" class="btn-primary w-full py-5 rounded-2xl text-lg font-semibold mb-3 flex items-center justify-center gap-2 relative">
+      <button onclick="reservar()" class="btn-primary w-full py-5 rounded-2xl text-lg font-semibold mb-3 flex items-center justify-center gap-2 relative">
         Pedir cita ahora
         <span aria-hidden="true">→</span>
       </button>
       <button onclick="goTo('ayuda')" class="btn-secondary w-full py-4 rounded-2xl text-base font-medium relative">
         ¿Ya tienes cita?
       </button>
+
+      <p class="text-xs leading-relaxed mt-4 relative" style="color:var(--arena)">
+        Al reservar, tus datos se usan únicamente para gestionar tu cita, conforme a la política de privacidad de Marta R.
+      </p>
 
       <div class="mt-10 relative">
         <p class="text-xs font-semibold uppercase tracking-wide mb-3" style="color:var(--arena)">Los 4 pilares del acompañamiento</p>
@@ -213,43 +217,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ===================== PANTALLA: ELEGIR SERVICIO ===================== -->
-    <section id="screen-servicio" class="screen flex-1 flex flex-col px-6 pt-6 pb-8">
-      <div class="flex items-center gap-3 mb-6">
-        <button onclick="goTo('inicio')" aria-label="Volver al inicio" class="icon-btn text-xl" style="color:var(--profundidad)">←</button>
-      </div>
-      <h2 class="font-display text-2xl mb-1">¿Qué tipo de sesión necesitas?</h2>
-      <p class="text-sm mb-6" style="color:var(--texto-muted)">Elige la que mejor encaje contigo. Se abrirá el calendario real de Marta para que elijas día y hora.</p>
-
-      <div class="space-y-3">
-        <button onclick="reservar('primera')" class="tap-card w-full text-left p-5 rounded-2xl flex items-center justify-between gap-3" style="background:var(--calidez)">
-          <span>
-            <span class="font-display text-lg font-medium mb-1 block">Primera sesión</span>
-            <span class="text-sm block" style="color:var(--texto-muted)">75 min · Conversación inicial para conocernos</span>
-          </span>
-          <span aria-hidden="true" style="color:var(--texto-muted)">↗</span>
-        </button>
-        <button onclick="reservar('seguimiento')" class="tap-card w-full text-left p-5 rounded-2xl flex items-center justify-between gap-3" style="background:var(--calidez)">
-          <span>
-            <span class="font-display text-lg font-medium mb-1 block">Sesión de seguimiento</span>
-            <span class="text-sm block" style="color:var(--texto-muted)">50 min · Continuamos tu proceso</span>
-          </span>
-          <span aria-hidden="true" style="color:var(--texto-muted)">↗</span>
-        </button>
-        <button onclick="reservar('online')" class="tap-card w-full text-left p-5 rounded-2xl flex items-center justify-between gap-3" style="background:var(--claridad)">
-          <span>
-            <span class="font-display text-lg font-medium mb-1 block">Sesión online</span>
-            <span class="text-sm block" style="color:var(--texto-claridad)">50 min · Por videollamada</span>
-          </span>
-          <span aria-hidden="true" style="color:var(--texto-claridad)">↗</span>
-        </button>
-      </div>
-
-      <p class="text-xs leading-relaxed mt-6" style="color:var(--arena)">
-        Al reservar, tus datos se usan únicamente para gestionar tu cita, conforme a la política de privacidad de Marta R.
-      </p>
     </section>
 
     <!-- ===================== PANTALLA: REDIRIGIDO A GOOGLE CALENDAR ===================== -->
@@ -292,19 +259,13 @@
 </div>
 
 <script>
-  /* Enlaces reales de "Horario de citas" de Google Calendar de Marta.
-     Sustituir por los enlaces de reserva de cada evento (Google Calendar
+  /* Enlace real del "Horario de citas" de Google Calendar de Marta — una única
+     sesión de 1h, válida tanto para online como presencial. (Google Calendar
      → Crear → Horario de citas → Compartir → Copiar enlace de reservas). */
-  const ENLACES_RESERVA = {
-    primera: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_PRIMERA_SESION',
-    seguimiento: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_SEGUIMIENTO',
-    online: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_ONLINE',
-  };
+  const ENLACE_RESERVA = 'https://calendar.app.google/MuWoC7tKX28WT7138';
 
   /* Número de WhatsApp real de Marta, formato internacional sin "+" (ej: 34600000000). */
   const WHATSAPP_NUMERO = 'PON_AQUI_EL_NUMERO';
-
-  let ultimoTipoReserva = null;
 
   function goTo(name){
     document.querySelectorAll('.screen').forEach(s => { s.classList.remove('active'); s.classList.remove('enter'); });
@@ -315,19 +276,17 @@
     document.getElementById('scroll-container').scrollTo(0,0);
   }
 
-  function reservar(tipo){
-    const url = ENLACES_RESERVA[tipo];
-    if(!url || url.includes('PON_AQUI')){
+  function reservar(){
+    if(!ENLACE_RESERVA || ENLACE_RESERVA.includes('PON_AQUI')){
       alert('Este enlace de reserva todavía no está configurado. Vuelve a intentarlo más tarde.');
       return;
     }
-    ultimoTipoReserva = tipo;
-    window.open(url, '_blank', 'noopener');
+    window.open(ENLACE_RESERVA, '_blank', 'noopener');
     goTo('redirigido');
   }
 
   function reabrirReserva(){
-    if(ultimoTipoReserva) reservar(ultimoTipoReserva);
+    reservar();
   }
 
   function abrirWhatsapp(){

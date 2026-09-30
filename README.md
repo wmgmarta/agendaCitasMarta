@@ -6,9 +6,10 @@ los 4 pilares del acompañamiento.
 
 ## Cómo funciona
 
-La web **no gestiona las citas ella misma** — las reservas reales se hacen en un "Horario de citas" de Google
-Calendar de Marta. La web es la puerta de entrada bonita y de marca: la clienta elige el tipo de sesión y la
-llevamos directamente al calendario real de Marta para que elija día y hora.
+La web **no gestiona las citas ella misma** — la reserva real se hace en el "Horario de citas" de Google Calendar
+de Marta (una única sesión de 1h, válida tanto para online como presencial). La web es la puerta de entrada bonita
+y de marca: el botón "Pedir cita ahora" lleva directamente a ese calendario real para que la clienta elija día y
+hora.
 
 Con esto, las tres cosas que hacían falta quedan resueltas por Google (no por código nuestro, que podría fallar):
 
@@ -21,45 +22,41 @@ Con esto, las tres cosas que hacían falta quedan resueltas por Google (no por c
 
 1. Entra en [Google Calendar](https://calendar.google.com) con la cuenta de Marta.
 2. Pulsa **Crear** → **Horario de citas**.
-3. Crea un horario por cada tipo de sesión (repite esto 3 veces). Para cada uno, copia y pega el título y la
-   descripción de la tabla siguiente — la descripción ya incluye el aviso de privacidad y el recordatorio de dejar
-   el teléfono:
+3. Configura la sesión — título `Sesión con Marta R.`, duración 1h, y en **Descripción** pega esto tal cual (ya
+   incluye el aviso de privacidad y el recordatorio de dejar el teléfono):
 
-   | | Primera sesión | Sesión de seguimiento | Sesión online |
-   |---|---|---|---|
-   | **Título** | Primera sesión — Marta R. | Sesión de seguimiento — Marta R. | Sesión online — Marta R. |
-   | **Duración** | 75 min | 50 min | 50 min |
-   | **Ubicación** | (tu dirección de consulta) | (tu dirección de consulta) | Videollamada — activa "Añadir Google Meet" |
-   | **Descripción** | Conversación inicial para conocernos. Cuéntame en las notas qué te trae por aquí y déjame tu teléfono si quieres el recordatorio por WhatsApp. Tus datos se usan únicamente para gestionar tu cita, conforme a mi política de privacidad. | Continuamos tu proceso. Si quieres, déjame tu teléfono en las notas para el recordatorio por WhatsApp. Tus datos se usan únicamente para gestionar tu cita, conforme a mi política de privacidad. | Sesión por videollamada — el enlace te llegará en la confirmación. Si quieres, déjame tu teléfono en las notas para el recordatorio por WhatsApp. Tus datos se usan únicamente para gestionar tu cita, conforme a mi política de privacidad. |
+   > Sesión de neurocoaching (online o presencial — indícamelo en las notas). Cuéntame en las notas qué te trae
+   > por aquí y déjame tu teléfono si quieres el recordatorio por WhatsApp. Tus datos se usan únicamente para
+   > gestionar tu cita, conforme a mi política de privacidad.
 
-   Además, en cada horario:
+   Además:
    - En **"Formulario de reserva"**, activa el campo de teléfono si está disponible; si no, activa "Notas
-     adicionales" (el texto de arriba ya le pide a la clienta que apunte ahí su teléfono).
+     adicionales" (el texto de arriba ya le pide a la clienta que apunte ahí su teléfono y la modalidad).
    - Define los días y horas en los que Marta está disponible, y el margen mínimo de antelación para reservar
      (por ejemplo, mínimo 12h y máximo 60 días vista).
-4. Una vez creado cada horario, pulsa **Compartir** → **Copiar enlace de reservas**. Ese enlace es el que hay que
-   pegar en el código (ver siguiente paso).
-5. Abre [`index.html`](index.html) y, cerca del final del archivo, sustituye los tres enlaces de ejemplo:
+   - En **Ubicación**, ya que sirve para online y presencial, puedes poner algo como "Se confirma la modalidad
+     por WhatsApp tras la reserva" o activar "Añadir Google Meet" y avisar en la descripción de que solo aplica
+     a las sesiones online.
+4. Pulsa **Compartir** → **Copiar enlace de reservas**.
 
-   ```js
-   const ENLACES_RESERVA = {
-     primera: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_PRIMERA_SESION',
-     seguimiento: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_SEGUIMIENTO',
-     online: 'https://calendar.app.google/PON_AQUI_EL_ENLACE_ONLINE',
-   };
-   ```
+El enlace real ya está incorporado en [`index.html`](index.html):
 
-   por los tres enlaces reales copiados en el paso 4.
-6. Justo debajo, pon el número de WhatsApp real de Marta (formato internacional, sin espacios ni "+"):
+```js
+const ENLACE_RESERVA = 'https://calendar.app.google/MuWoC7tKX28WT7138';
+```
 
-   ```js
-   const WHATSAPP_NUMERO = 'PON_AQUI_EL_NUMERO'; // ej: '34600000000'
-   ```
+Si en algún momento Marta cambia de horario de citas (o crea uno nuevo), solo hay que sustituir esa línea por el
+enlace nuevo, hacer commit y publicar (ver "Cómo verlo" más abajo).
 
-7. Guarda, haz commit y publica los cambios (ver "Cómo verlo" más abajo).
+Todavía falta poner el número de WhatsApp real de Marta (formato internacional, sin espacios ni "+"), un poco más
+abajo en el mismo archivo:
 
-Mientras estos valores tengan el texto `PON_AQUI...`, la web avisa con un mensaje en vez de abrir un enlace roto —
-así nunca se queda "silenciosamente" rota si alguien lo intenta reservar antes de terminar la configuración.
+```js
+const WHATSAPP_NUMERO = 'PON_AQUI_EL_NUMERO'; // ej: '34600000000'
+```
+
+Mientras ese valor tenga el texto `PON_AQUI...`, la web avisa con un mensaje en vez de abrir un enlace roto — así
+nunca se queda "silenciosamente" rota si alguien pulsa el botón antes de terminar la configuración.
 
 ### Sobre la política de privacidad
 
