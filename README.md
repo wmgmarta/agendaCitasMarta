@@ -21,13 +21,22 @@ Con esto, las tres cosas que hacían falta quedan resueltas por Google (no por c
 
 1. Entra en [Google Calendar](https://calendar.google.com) con la cuenta de Marta.
 2. Pulsa **Crear** → **Horario de citas**.
-3. Crea un horario por cada tipo de sesión (puedes repetir esto 3 veces):
-   - **Primera sesión** — duración 75 min.
-   - **Sesión de seguimiento** — duración 50 min.
-   - **Sesión online** — duración 50 min, y en "Ubicación" pon que es por videollamada (Google puede añadir un
-     enlace de Google Meet automáticamente).
-   - En cada uno, define los días y horas en los que Marta está disponible, y el margen mínimo de antelación para
-     reservar.
+3. Crea un horario por cada tipo de sesión (repite esto 3 veces). Para cada uno, copia y pega el título y la
+   descripción de la tabla siguiente — la descripción ya incluye el aviso de privacidad y el recordatorio de dejar
+   el teléfono:
+
+   | | Primera sesión | Sesión de seguimiento | Sesión online |
+   |---|---|---|---|
+   | **Título** | Primera sesión — Marta R. | Sesión de seguimiento — Marta R. | Sesión online — Marta R. |
+   | **Duración** | 75 min | 50 min | 50 min |
+   | **Ubicación** | (tu dirección de consulta) | (tu dirección de consulta) | Videollamada — activa "Añadir Google Meet" |
+   | **Descripción** | Conversación inicial para conocernos. Cuéntame en las notas qué te trae por aquí y déjame tu teléfono si quieres el recordatorio por WhatsApp. Tus datos se usan únicamente para gestionar tu cita, conforme a mi política de privacidad. | Continuamos tu proceso. Si quieres, déjame tu teléfono en las notas para el recordatorio por WhatsApp. Tus datos se usan únicamente para gestionar tu cita, conforme a mi política de privacidad. | Sesión por videollamada — el enlace te llegará en la confirmación. Si quieres, déjame tu teléfono en las notas para el recordatorio por WhatsApp. Tus datos se usan únicamente para gestionar tu cita, conforme a mi política de privacidad. |
+
+   Además, en cada horario:
+   - En **"Formulario de reserva"**, activa el campo de teléfono si está disponible; si no, activa "Notas
+     adicionales" (el texto de arriba ya le pide a la clienta que apunte ahí su teléfono).
+   - Define los días y horas en los que Marta está disponible, y el margen mínimo de antelación para reservar
+     (por ejemplo, mínimo 12h y máximo 60 días vista).
 4. Una vez creado cada horario, pulsa **Compartir** → **Copiar enlace de reservas**. Ese enlace es el que hay que
    pegar en el código (ver siguiente paso).
 5. Abre [`index.html`](index.html) y, cerca del final del archivo, sustituye los tres enlaces de ejemplo:
@@ -51,6 +60,14 @@ Con esto, las tres cosas que hacían falta quedan resueltas por Google (no por c
 
 Mientras estos valores tengan el texto `PON_AQUI...`, la web avisa con un mensaje en vez de abrir un enlace roto —
 así nunca se queda "silenciosamente" rota si alguien lo intenta reservar antes de terminar la configuración.
+
+### Sobre la política de privacidad
+
+Tanto la web como las descripciones de arriba mencionan "mi política de privacidad", pero de momento no existe
+ninguna. Como Marta trata datos relacionados con salud/bienestar emocional, antes de publicar esto de cara a
+clientas reales conviene tener un texto básico de privacidad (qué datos se piden, para qué se usan, cuánto se
+guardan) — no hace falta que sea complejo, pero sí que exista. No es algo que deba resolver el código; coméntalo
+con Marta o con quien lleve su gestoría/asesoría para tenerlo listo antes de compartir el enlace.
 
 ## Qué NO hace
 
